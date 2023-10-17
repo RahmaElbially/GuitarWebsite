@@ -1,0 +1,658 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    perspective: 700px;
+}
+@keyframes arrowTransition{
+    0%{
+        left: 40%;
+        border-radius: 0;
+    }
+    100%{
+        left: 100%;
+        transform: translate(-100%);
+        border-radius: 7px;
+    }
+}
+
+/* Start Header */
+.headerContainer{
+    width: 80%;
+    margin: auto;
+    padding-top: 30px;
+}
+.headerContainer .headerContent{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+.headerContainer .headerContent .headerLogo{
+    display: flex;
+}
+.headerContainer .headerContent .headerLogo img{
+    width: 40px;
+    height: 40px;
+}
+.headerContainer .headerContent .headerLogo h2{
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-size: 30px;
+    font-family: 'Satisfy', cursive;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    padding-top: 3px;
+}
+nav ul li{
+    display: inline-block;
+    transform-style: preserve-3d;
+}
+nav ul li a{
+    position: relative;
+    display: block;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(18, 18, 18, 0.4);
+    width: 120px;
+    height: 40px;
+    margin-right: 5px;
+    padding-top: 7px;
+    transition: 1s;
+}
+nav ul li a::after,
+nav ul li a::before{
+    content: " ";
+    position: absolute;
+    border-style: solid;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s;
+}
+nav ul li a::before{
+    border-width: 0 2px;
+    height: 98%; 
+    width: 95%;
+    transform: scale3d(1,0,1);
+}
+nav ul li a:hover::before{
+    transform: scale3d(1,1,1);
+}
+nav ul li a::after{
+    border-width: 2px 0;
+    height: 90%;
+    width: 97%;
+    transform: scale3d(0,1,1);
+    transform-origin: left;
+}
+nav ul li a:hover::after{
+    transform: scale3d(1,1,1);
+    transition-delay: 0.2s;
+}
+nav ul li a:hover{
+    color: #FF6428;
+}
+nav ul .collections{
+    position: relative;
+}
+nav ul .collections .collectionsTable{
+    position: absolute;
+    top: 50px;
+    visibility: hidden;
+    transform: scale(0);
+    transition: transform 0.5s , visibility .5s;
+}
+nav ul .collections .collectionsTable table{
+    border: 2px solid #FF6428;
+    text-align: left;
+    display: block;
+    background-color: #FFF;
+    width: 450px;
+}
+nav ul .collections .collectionsTable table thead,
+nav ul .collections .collectionsTable table tbody{
+    display: block;
+    padding: 10px;
+}
+nav ul .collections .collectionsTable table td{
+   display: inline-block;
+   margin-bottom: 10px;
+}
+nav ul .collections .collectionsTable table th{
+    display: inline-block;
+    border-bottom: 1px dotted #FF6428;
+}
+nav ul .collections .collectionsTable table .center{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+nav ul .collections .collectionsTable table a{
+    text-decoration: none;
+    display: block;
+    width: 120px;
+    color: rgba(18, 18, 18, 0.7);
+}
+nav ul .collections:hover .collectionsTable{
+    visibility: visible;
+    transform: scale(1);
+}
+.headerContainer .headerContent .headerIcons ul{
+    list-style: none;
+    display: flex;
+    padding-top: 10px;
+}
+.headerContainer .headerContent .headerIcons ul a{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    margin-left: 20px;
+}
+.headerContainer .headerContent .headerIcons ul span{
+    margin-left: 20px;
+    text-transform: capitalize;
+    padding-top: 10px;
+}
+.headerContainer .headerContent .headerIcons ul .cart{
+    position: relative;
+}
+.headerContainer .headerContent .headerIcons ul .cart::after{
+    position: absolute;
+    content: "0";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FF6428;
+    color: #FFF;
+    font-size: 18px;
+    bottom: -8px;
+}
+/* End Header */
+
+/* Start Background */
+.background{
+    width: 80%;
+    margin: 30px auto;
+    height: 540px;
+    background: -webkit-linear-gradient( top left, rgba(255, 162, 126, 1), rgba(255, 100, 40, 1));
+}
+.background .backgroundContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.background .backgroundContainer .backgroundContent{
+    width: 35%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.background .backgroundContainer .backgroundContent h3{
+    color: #FFF;
+    font-size: 45px;
+    line-height: 1.3;
+}
+.background .backgroundContainer .backgroundContent span{
+    color: rgba(18, 18, 18, 0.4);
+}
+.background .backgroundContainer .backgroundContent button{
+    margin-top: 30px;
+    font-size: 25px;
+    border: none;
+    padding: 20px 35px;
+    border-radius: 35px;
+    color: #FF6428;
+    background-color: #FFF;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.background .backgroundContainer .backgroundContent button:hover{
+    background-color: rgba(18, 18, 18, 0.4);
+    color: #FFF;
+}
+.background .backgroundContainer .backgroundImage{
+    /* height: 50%; */
+    width: 32%;
+    margin-top: 2%;
+}
+.background .backgroundContainer .backgroundImage img{
+    width: 100%;
+    height: 100%;
+    border-radius: 80px 25px;
+}
+/* End Background */
+
+/* Start Categories */
+.categories{
+    width: 80%;
+    margin: auto;
+}
+.categories .categoriesHeading{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 24px;
+    color: rgba(18, 18, 18, 0.4);
+}
+.categories .categoriesHeading span{
+    color: #FF6428;
+}
+.categories .categoriesHeading .line{
+    width: 150px;
+    height: 2px;
+    background-color: #FF6428;
+    margin: 15px auto;
+    transition: width 0.5s;
+}
+.categories .categoriesHeading:hover .line{
+    width: 200px;
+}
+.categories .categoriesImage{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.categories .categoriesImage .category1{
+    position: relative;
+}
+.categories .categoriesImage .category1 img{
+    width: 250px;
+}
+.categories .categoriesImage .category1 h3{
+    position: absolute;
+    bottom: 110px;
+    left: 30%;
+    font-size: 18px;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.categories .categoriesImage .category1 .moreInfo{
+    margin-top: 20px;
+    position: relative;
+}
+.categories .categoriesImage .category1 .moreInfo a{
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #FF6428;
+    position: relative;
+    z-index: 1;
+}
+.categories .categoriesImage .category1 .moreInfo a:hover{
+    text-decoration: underline;
+}
+.categories .categoriesImage .category1 .moreInfo p{
+    font-size: 17px;
+    margin-top: 10px;
+    text-transform: capitalize;
+    color: rgba(18, 18, 18, 0.7);
+}
+.categories .categoriesImage .category1 .moreInfo .arrow{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: #FF6428;
+    color: #FFF;
+    font-size: 18px;
+    padding-top: 6px;
+    position: absolute;
+    top: -4px;
+    left: 40%;
+    visibility: hidden;
+}
+.categories .categoriesImage .category1:hover .arrow{
+    visibility: visible;
+    animation-name: arrowTransition;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.categories .categoriesImage .category1::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 1s;
+}
+.categories .categoriesImage .category1::before{
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 1s;
+}
+.categories .categoriesImage .category1:hover::after{
+    width: 0;
+    height: 100%;
+}
+.categories .categoriesImage .category1:hover::before{
+    width: 0;
+    height: 100%;
+}
+/* End Categories */
+
+/* Start Review */
+.review{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+.review .reviewContainer{
+    display: flex;
+}
+.review .reviewContainer .reviewcontainerContent{
+    width: 50%;
+    padding: 20px;
+    margin-right: 25px;
+    background-color: aliceblue;
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentHeading{
+    display: flex;
+    position: relative;
+    margin-bottom: 40px;
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentHeading i{
+    font-size: 45px;
+    color: #FF6428;
+    margin-right: 10px;
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentHeading h3{
+    font-size: 22px;
+    color: rgba(18, 18, 18, 0.4);
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentHeading span{
+    color: #FF6428;
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentHeading p{
+    position: absolute;
+    top: 25px;
+    left: 10%;
+    font-size: 18px;
+    color: rgba(18, 18, 18, 0.7);
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentP{
+   display: flex;
+   margin-bottom: 20px;
+   color: rgba(18, 18, 18, 0.7);
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentP i{
+    font-size: 25px;
+    color: #FF6428;
+    margin-right: 20px;
+}
+.review .reviewContainer .reviewcontainerContent .reviewContainerContentP p{
+    font-size: 20px;
+    text-align: justify;
+    line-height: 1.5;
+}
+.review .reviewContainer .reviewContainerImage{
+    display: flex;
+}
+.review .reviewContainer .reviewContainerImage .reviewContainerImageOne{
+    position: relative;
+    width: 290px;
+    height: 343px;
+    background-image: url(../Images/Guiter2.jpg);
+    background-position: center;
+    background-size: cover;
+    margin-right: 25px;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+.review .reviewContainer .reviewContainerImage .differentImage{
+    background-image: url(../Images/Guiter3.jpg);
+}
+.review .reviewContainer .reviewContainerImage .reviewContainerImageOne:hover{
+    transform: scale(1.1);
+    overflow: hidden;
+}
+.review .reviewContainer .reviewContainerImage .reviewContainerImageOne .imageContent{
+    position: absolute;
+    top: 10%;
+    left: 4%;
+}
+.review .reviewContainer .reviewContainerImage .reviewContainerImageOne .imageContent .discount{
+    font-size: 20px;
+    color: #FF6428;
+    margin-bottom: 10px;
+}
+.review .reviewContainer .reviewContainerImage .reviewContainerImageOne .imageContent .guitarName{
+    font-size: 18px;
+    color: rgba(18, 18, 18, 0.7);
+    text-transform: capitalize;
+}
+.review .reviewContainer .reviewContainerImage .differentImage .imageContent .guitarName{
+    color: #FFF;
+}
+/* End Review */
+
+/* Start Services */
+.services{
+    width: 80%;
+    margin: 50px auto;
+}
+.services .servicesContainer{
+    display: flex;
+    border-bottom: 1px solid #FF6428;
+    padding-bottom: 40px;
+}
+.services .servicesContainer .servicesContainerItem{
+    width: 20%;
+    text-align: center;
+    border-right: 1px solid #FF6428;
+}
+.services .servicesContainer .no-border{
+    border: none;
+}
+.services .servicesContainer .servicesContainerItem .servicesContainerItemContent h3{
+    color: #FF6428;
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+.services .servicesContainer .servicesContainerItem .servicesContainerItemContent p{
+    color: rgba(18, 18, 18, 0.7);
+    font-size: 18px;
+}
+.services .servicesContainer .servicesContainerItem .servicesContainerItemIcon{
+    height: 75px;
+    background-image: url(../Images/service-icon.png);
+    background-repeat: no-repeat;
+}
+.services .servicesContainer .servicesContainerItem .icon1{
+    background-position: center 20px;
+    transition: all 0.5s;
+}
+.services .servicesContainer .servicesContainerItem:hover .icon1{
+    background-position: center -75px;
+}
+.services .servicesContainer .servicesContainerItem .icon2{
+    background-position: center -165px;
+    transition: all 0.5s;
+}
+.services .servicesContainer .servicesContainerItem:hover .icon2{
+    background-position: center -260px;
+}
+.services .servicesContainer .servicesContainerItem .icon3{
+    background-position: center -350px;
+    transition: all 0.5s;
+}
+.services .servicesContainer .servicesContainerItem:hover .icon3{
+    background-position: center -440px;
+}
+.services .servicesContainer .servicesContainerItem .icon4{
+    background-position: center -535px;
+    transition: all 0.5s;
+}
+.services .servicesContainer .servicesContainerItem:hover .icon4{
+    background-position: center -625px;
+}
+.services .servicesContainer .servicesContainerItem .icon5{
+    background-position: center -720px;
+    transition: all 0.5s;
+}
+.services .servicesContainer .servicesContainerItem:hover .icon5{
+    background-position: center -810px;
+}
+/* End Services */
+
+/* Start Products */
+.products{
+    width: 80%;
+    margin: auto;
+}
+.products .productsHeading{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 24px;
+    color: rgba(18, 18, 18, 0.4);
+}
+.products .productsHeading span{
+    color: #FF6428;
+}
+.products .productsHeading .line{
+    width: 120px;
+    height: 2px;
+    background-color: #FF6428;
+    margin: 15px auto;
+    transition: width 0.5s;
+}
+.products .productsHeading:hover .line{
+    width: 170px;
+}
+.products .productsLinks ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 30px 0;
+}
+.products .productsLinks ul a{
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 30px;
+    text-transform: capitalize;
+    color: rgba(18, 18, 18, 0.7);
+}
+.products .productsLinks ul a:hover{
+    color: #FF6428;
+    text-decoration: underline;
+}
+.products .productsImages .productsImageOne{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.products .productsImages .productsImagesItem{
+    width: 31.5%;
+}
+.products .productsImages .productsImagesItem .productsImagesItemImg{
+    position: relative;
+    transition: all 1s;
+    transform-style: preserve-3d;
+    height: 450px;
+}
+.products .productsImages .productsImagesItem .productsImagesItemImg .front,
+.products .productsImages .productsImagesItem .productsImagesItemImg .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../Images/Guiter8.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.products .productsImages .productsImagesItem .productsImagesItemImg .back{
+    background-image: url(../Images/Guiter9.jpg);
+    transform: rotateY(180deg);
+}
+.products .productsImages .productsImagesItem .productsImagesItemImg .front{
+    z-index: 1;
+    backface-visibility: hidden;
+}
+.products .productsImages .productsImagesItemImg:hover{
+    transform: rotateY(180deg);
+}
+.products .productsImages .productsImagesItem .productsImagesItemImg .back ul{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    display: flex;
+    list-style: none;
+}
+.products .productsImages .productsImagesItem .productsImagesItemImg .back a{
+    text-decoration: none;
+}
+.products .productsImages .productsImagesItem .productsImagesItemImg .back i{
+    width: 50px;
+    height: 50px;
+    background-color: #FF6428;
+    margin-right: 10px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 25px;
+    color: #FFF;
+} 
+.products .productsImages .productsImagesItem .productsImagesItemImg .back i:hover{
+    background-color: #FFF;
+    color: #FF6428;
+}
+.products .productsImages .productsImagesItem .productsImagesItemInfo{
+    margin-top: 20px;
+}
+.products .productsImages .productsImagesItem .productsImagesItemInfo ul{
+    list-style: none;
+    display: flex;
+}
+.products .productsImages .productsImagesItem .productsImagesItemInfo ul i{
+    margin-right: 5px;
+    font-size: 14px;
+    color: #FF6428;
+}
+.products .productsImages .productsImagesItem .productsImagesItemInfo p{
+    margin: 10px 0;
+    color: rgba(18, 18, 18, 0.7);
+    font-size: 20px;
+}
+.products .productsImages .productsImagesItem .productsImagesItemInfo h3{
+    color: rgba(18, 18, 18, 0.4);
+    font-size: 18px;
+}
+.products .productsImages .productTwo .productsImagesItemImg .front{
+    background-image: url(../Images/Guiter10.jpg);
+}
+.products .productsImages .productTwo .productsImagesItemImg .back{
+    background-image: url(../Images/Guiter11.jpg);
+}
+.products .productsImages .productThree .productsImagesItemImg .front{
+    background-image: url(../Images/Guiter12.jpg);
+}
+.products .productsImages .productThree .productsImagesItemImg .back{
+    background-image: url(../Images/Guiter14.jpg);
+}
+.products .productsImages .productFour .productsImagesItemImg .front{
+    background-image: url(../Images/Guiter15.jpg);
+}
+.products .productsImages .productFour .productsImagesItemImg .back{
+    background-image: url(../Images/Guiter16.jpg);
+}
+.products .productsImages .productFive .productsImagesItemImg .front{
+    background-image: url(../Images/Guiter2.jpg);
+}
+.products .productsImages .productFive .productsImagesItemImg .back{
+    background-image: url(../Images/Guiter18.jpg);
+}
+.products .productsImages .productSix .productsImagesItemImg .front{
+    background-image: url(../Images/Guiter3.jpg);
+}
+.products .productsImages .productSix .productsImagesItemImg .back{
+    background-image: url(../Images/Guiter10.jpg);
+}
+/* End Products */
